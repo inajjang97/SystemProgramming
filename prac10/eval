@@ -1,0 +1,19 @@
+a=1
+for f in ./*.c
+do
+    printf "\n<<< [ %d ] %s >>>\n\n" "$a" "$f"
+    gcc "$f" -lm
+    ./a.out < input.txt
+    rm a.out
+    printf "\n\nExecution finished.\nType 'c' to open code or just ENTER to continue: "
+    read -r b
+    if [ "$b" = "c" ]
+    then
+        printf "\nHere's the code:\n\n"
+        cat "$f"
+        printf "\nPress ENTER to continue: "
+        read -r c
+    fi
+    printf "\n----------------------------------------------------------------------\n"
+    (( a++ ))
+done

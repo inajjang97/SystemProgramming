@@ -1,0 +1,22 @@
+	@상수 는 없는 것으로 가정
+	#(음수)
+	store_symbol 에서 10진수
+	symbol 10진수
+	type 1의 경우 operand 없음
+	start end없는 경우
+	free
+	파일 맨처음
+	파일 삭제
+	포맷2 매개변수
+	매개변수 없는 경우
+	변수30개
+	에러 라인 출력
+reg 바꿔주기
+	symbol table
+		assemble 실패일때도 hi?
+
+
+보고서
+1) symtable_tmp
+2) store_symbol 10진수
+

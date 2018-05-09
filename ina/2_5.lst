@@ -1,0 +1,52 @@
+0000               START         0          
+0000       STL    RETADR          
+0003       LDB   #LENGTH          
+0003      BASE    LENGTH          
+0003     +JSUB     RDREC          
+0003       LDA    LENGTH          
+0003      COMP        #0          
+0003       JEQ    ENDFIL          
+0003     +JSUB     WRREC          
+0003         J     CLOOP          
+001A       LDA       EOF          
+0003       STA    BUFFER          
+0003       LDA        #3          
+0003       STA    LENGTH          
+0003     +JSUB     WRREC          
+0003         J   @RETADR          
+001A      BYTE    C'EOF'          
+001B      RESW         1          
+001E      RESW         1          
+0021      RESB      4096          
+40B7                              
+40B7                    READ          
+40B7                              
+40B7     CLEAR         X          
+0003     CLEAR         A          
+0003     CLEAR         S          
+0003      +LDT     #4096          
+0003        TD     INPUT          
+0003       JEQ     RLOOP          
+0003        RD     INPUT          
+0003     COMPR         AS          
+0003       JEQ      EXIT          
+0003      STCH    BUFFERX          
+0003      TIXR         T          
+0003       JLT     RLOOP          
+0003       STX    LENGTH          
+0003      RSUB                    
+0003      BYTE     X'F1'          
+0004                              
+0004                    WRITE          
+0004                              
+0004     CLEAR         X          
+0003       LDT    LENGTH          
+0003        TD    OUTPUT          
+0003       JEQ     WLOOP          
+0003      LDCH    BUFFERX          
+0003        WD    OUTPUT          
+0003      TIXR         T          
+0003       JLT     WLOOP          
+0003      RSUB                    
+0003      BYTE     X'05'          
+0004       END     FIRST          

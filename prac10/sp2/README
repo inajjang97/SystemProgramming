@@ -1,0 +1,63 @@
+컴파일 하시려면 make를 입력하세요
+실행 하시려면 ./20111586.out을 입력하세요
+
+프로그램 구동시
+"sicsim> "창이 활성화되며 그 뒤에 명령어를 입력하면 됩니다.
+
+명령어 리스트
+1. h[elp]
+shell에서 실행 가능한 모든 명령어들의 리스트를 출력합니다
+
+2. d[ir]
+현재 디렉토리 내에 있는 파일들을 출력합니다
+
+3. q[uit]
+프로그램을 종료합니다
+
+4. hi[story]
+정상적으로 실행된 명령어들의 리스트를 순서대로 출력합니다
+
+5. du[mp] [start, end]
+start, end 번지수 모두 주어지지 않은 경우 : 마지막으로 출력된 address부터 160개의 메모리값을 출력합니다
+start 번지수만 주어진 경우 : start 번지수 부터 160개의 메모리값을 출력합니다
+start, end 번지수 모두 주어진 경우 : start 번지수부터 end 번지수까지 메모리값을 출력합니다
+메모리값의 ASCII코드 출력시 출력되는 범위는 16진수로 20~7E 까지입니다
+address의 초기값은 0이며, dump 명령어 수행후 end번지수의 다음 번지수로 초기화됩니다
+
+6. e[dit] address, value
+target address의 메모리값을 지정한 value로 수정합니다
+
+7. f[ill] start, end, value
+start 번지수부터 end 번지수까지의 메모리값을 지정한 value로 수정합니다
+
+8.reset
+0부터 FFFFF번지까지의 메모리를 모두 00으로 초기화합니다
+
+9. opcode mnemonic
+해당 명령어가 opcodelist내에 존재하는지 확인하여 존재시 opcode를 출력합니다
+
+10. opcodelist
+프로그램 내에 존재하는 모든 opcode 리스트를 출력합니다
+
+11. type filename
+현재 디렉토리에서 filename에 해당하는 파일을 읽어서 화면에 그대로 출력합니다
+현재 디렉토리에서 filename에 해당하는 파일이 존재하지 않는 경우 에러를 출력합니다
+
+12. assemble filename
+filename의 확장자는 항상 .asm파일이어야 하며 이외의 경우는 에러를 출력합니다
+또한 해당파일이 존재하지 않는 경우에도 에러를 출력합니다
+filename에 해당하는 파일을 읽어서 assemble하여 object파일과 listing파일을 생성합니다
+생성되는 listing파일명은 filename에서 확장자만 lst로 변경된 파일명입니다
+생성되는 object파일명은 filename에서 확장자만 obj로 변경된 파일명입니다
+소스파일에 에러가 존재할 경우, 해당 에러가 발생한 LINE과 에러내용을 출력하고 종료합니다
+또한 listing파일과 object파일은 생성하지 않습니다
+
+13. symbol
+가장 최근 assemble 한 파일의 symbol table을 화면에 출력합니다 
+symbol의 출력은 symbol을 기준으로 내림차순 정렬하여 출력합니다
+assemble 도중 error가 발생하거나 최근에 assemble한 파일이 없는 경우 symbol table은 비어있습니다
+
+주의사항
+Shell 명령어는 모두 소문자로만 인식합니다
+인자로 사용되는 숫자는 모두 16진수입니다(16진수 입력시는 대소문자 사용 가능)
+명령어의 길이는 80자 제한입니다

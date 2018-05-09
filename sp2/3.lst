@@ -1,0 +1,13 @@
+5	0000           START  0                  	
+10	0000    FIRST  STL    RETADR             	172FFC
+15	0003           LDB    #CLOOP             	692000
+20	    	       BASE   CLOOP              	
+25	0006    CLOOP  +JSUB  ENDAAA             	4B10001C
+30	000A           LDA    CLOOP              	032FF9
+35	000D           COMP   #0                 	290000
+40	0010           JEQ    ENDAAA             	332009
+45	0013           +JSUB  FIRST              	4B100000
+50	0017           J      CLOOP              	3F2FEC
+55	001A    	   SHIFTL X,3                   	A413
+60	001C    ENDAAA LDA    CLOOP              	032FE7
+65	    	       LDA    #3                 	010003
